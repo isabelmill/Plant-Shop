@@ -8,6 +8,7 @@ async function getPlants(req, res) {
         const plants = await plantService.query(queryParams)
         res.json(plants);
     } catch (err) {
+        console.log('got to fail of getting plants',err);
         logger.error('Failed to get plants', err)
         res.status(500).send({
             err: 'Failed to get plants'

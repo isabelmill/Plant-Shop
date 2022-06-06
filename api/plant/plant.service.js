@@ -4,9 +4,8 @@ const ObjectId = require('mongodb').ObjectId
 
 async function query() {
     try {
-        const criteria = {}
         const collection = await dbService.getCollection('plant')
-        let plants = await collection.find(criteria).toArray()
+        let plants = await collection.find().toArray()
         return plants
     } catch (err) {
         logger.error('cannot find plants', err)
